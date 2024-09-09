@@ -1,0 +1,227 @@
+"EmployeeList As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+
+    RectQuickActionBar1 As rectangle:
+        Height: =51
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Canvas1 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width
+        Y: =RectQuickActionBar1.Y + RectQuickActionBar1.Height
+        ZIndex: =3
+
+        DataCard2 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =Parent.Height - 100
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Label17_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(39, 113, 194, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =53
+                Size: =15
+                Text: ="Emplopyee details under your Hierarchy"
+                Width: =1366
+                Y: =32
+                ZIndex: =1
+
+            Icon2_1 As icon.Reload:
+                Height: =41
+                Icon: =Icon.Reload
+                OnSelect: =Refresh(Employees)
+                Width: =32
+                X: =190
+                Y: =85
+                ZIndex: =2
+
+            Gallery2 As gallery.galleryVertical:
+                '#CopilotOverlayLabel': ="Filtered"
+                DelayItemLoading: =true
+                Fill: =RGBA(253, 222, 207, 1)
+                Height: =415
+                Items: =Gallery3.Selected
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =410
+                X: =672
+                Y: =152
+                ZIndex: =3
+
+                Label12 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =36
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: |-
+                        ="Email: "&ThisItem.Email
+                    Width: =443
+                    X: =100
+                    Y: =224
+                    ZIndex: =1
+
+                Label18 As label:
+                    FontWeight: =FontWeight.Bold
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: |-
+                        ="Emp Id: "&ThisItem.'Emp Id'
+                    X: =100
+                    Y: =112
+                    ZIndex: =2
+
+                Label19 As label:
+                    FontWeight: =FontWeight.Bold
+                    Height: =46
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: |-
+                        ="Name: "&ThisItem.'Employee Name'
+                    Width: =416
+                    X: =100
+                    Y: =164
+                    ZIndex: =3
+
+                Rating2 As rating:
+                    BorderColor: =RGBA(0, 16, 96, 1)
+                    Default: =ThisItem.'Employee Ratting'
+                    DisplayMode: =DisplayMode.View
+                    OnSelect: =Select(Parent)
+                    RatingFill: =RGBA(9, 33, 98, 1)
+                    X: =250
+                    Y: =286
+                    ZIndex: =4
+
+                Label26 As label:
+                    FontWeight: =FontWeight.Bold
+                    OnSelect: =Select(Parent)
+                    Size: =14
+                    Text: |-
+                        ="Rating: "
+                    X: =100
+                    Y: =286
+                    ZIndex: =5
+
+                Label17_8 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(0, 0, 0, 1)
+                    FontWeight: =FontWeight.Bold
+                    Height: =53
+                    Size: =15
+                    Text: =ThisItem.'Employee Name' &" Profile"
+                    Width: =630
+                    Y: =2
+                    ZIndex: =6
+
+    CompanyName_lb_3 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =51
+        Size: =20
+        Text: =EmpCompany.'Account Name'
+        Width: =1366
+        ZIndex: =4
+
+    Icon1_3 As icon.Unlock:
+        Color: =RGBA(184, 0, 0, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =32
+        Icon: =Icon.Unlock
+        OnSelect: =Navigate(loginPage,ScreenTransition.Fade)
+        Width: =33
+        X: =24
+        Y: =9
+        ZIndex: =5
+
+    Back_2 As icon.BackArrow:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =41
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(WelcomeScreen,ScreenTransition.Fade);
+        Width: =33
+        X: =1317
+        Y: =5
+        ZIndex: =6
+
+    Container4 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.ExtraBold
+        Height: =451
+        Width: =449
+        X: =192
+        Y: =184
+        ZIndex: =7
+
+        "Gallery3 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver5.0'":
+            '#CopilotOverlayLabel': ="Filtered"
+            DelayItemLoading: =true
+            Height: =344
+            Items: =Filter(Employees,'Manager '.'Emp Id'=EmpId)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =80
+            Width: =449
+            Y: =52
+            ZIndex: =1
+
+            Title1 As label:
+                Color: =RGBA(0, 121, 187, 1)
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Employee Name'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 86
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            Separator2 As rectangle:
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =3
+
+            Rectangle1 As rectangle:
+                Height: =Parent.TemplateHeight - Separator2.Height
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                ZIndex: =4
+
+        Button1 As button:
+            Fill: =RGBA(26, 26, 26, 1)
+            OnSelect: =Navigate(EmployeeRatting,ScreenTransition.Fade)
+            Text: ="Rating Employee"
+            Width: =191
+            X: =20
+            Y: =408
+            ZIndex: =2
+
+        Label28 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Text: ="Employee List"
+            Width: =449
+            ZIndex: =3
+

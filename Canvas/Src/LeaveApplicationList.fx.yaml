@@ -1,0 +1,132 @@
+LeaveApplicationList As screen:
+    OnVisible: =
+
+    CompanyName_lb_6 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =51
+        Size: =20
+        Text: =EmpCompany.'Account Name'
+        Width: =1366
+        ZIndex: =1
+
+    Icon1_6 As icon.Unlock:
+        Color: =RGBA(184, 0, 0, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =32
+        Icon: =Icon.Unlock
+        OnSelect: =Navigate(loginPage,ScreenTransition.Fade)
+        Width: =33
+        X: =24
+        Y: =9
+        ZIndex: =2
+
+    Back_5 As icon.BackArrow:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =41
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(LeaveApplication,ScreenTransition.Fade);
+        Width: =33
+        X: =1317
+        Y: =5
+        ZIndex: =3
+
+    Label17_3 As label:
+        Align: =Align.Center
+        Color: =RGBA(39, 113, 194, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =53
+        Size: =15
+        Text: ="You'r Leave Application List"
+        Width: =1077
+        X: =148
+        Y: =67
+        ZIndex: =4
+
+    Container3 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.ExtraBold
+        Height: =503
+        Width: =1140
+        X: =117
+        Y: =172
+        ZIndex: =5
+
+        "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+            '#CopilotOverlayLabel': ="Filtered"
+            DelayItemLoading: =true
+            Height: =503
+            Items: |-
+                =Filter('Leave Applications',Employee.'Emp Id'=EmpId)
+                //'Leave Applications'
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =90
+            Width: =1140
+            ZIndex: =1
+
+            Title3 As label:
+                Color: =RGBA(0, 121, 187, 1)
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.'Leave Id'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 86
+                X: =16
+                Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle3.Size * 1.8)) / 2
+                ZIndex: =1
+
+            Subtitle3 As label:
+                Color: |-
+                    =Switch(
+                        Subtitle3.Text,
+                        "Pending", Color.Brown,
+                        "Approve", Color.Green,
+                        "Reject", Color.Red,
+                        Color.Black // Default color if none of the conditions are met
+                    )
+                FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |
+                    =ThisItem.'Leave Status'
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title3.Width
+                X: =Title3.X
+                Y: =Title3.Y + Title3.Height
+                ZIndex: =2
+
+            Separator5 As rectangle:
+                Height: =8
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - Self.Height
+                ZIndex: =4
+
+            Rectangle3 As rectangle:
+                Height: =Parent.TemplateHeight - Separator5.Height
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.IsSelected
+                Width: =4
+                ZIndex: =5
+
+    Icon2 As icon.Reload:
+        Height: =41
+        Icon: =Icon.Reload
+        OnSelect: =Refresh('Leave Applications')
+        Width: =32
+        X: =1205
+        Y: =120
+        ZIndex: =6
+

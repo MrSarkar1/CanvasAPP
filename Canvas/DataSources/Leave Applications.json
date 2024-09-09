@@ -1,0 +1,126 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr319_leaveapplications",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr319_leaveapplication",
+    "MaxGetRowsCount": 500,
+    "Name": "Leave Applications",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr319_companyemailid": "Company Email Id",
+      "cr319_Employee": "Employee",
+      "cr319_fromdate": "From Date",
+      "cr319_leaveapplication_AsyncOperations": "System Jobs",
+      "cr319_leaveapplication_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr319_leaveapplication_DuplicateBaseRecord": "Duplicate Records (cr319_leaveapplication_DuplicateBaseRecord)",
+      "cr319_leaveapplication_DuplicateMatchingRecord": "Duplicate Records (cr319_leaveapplication_DuplicateMatchingRecord)",
+      "cr319_leaveapplication_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr319_leaveapplication_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr319_leaveapplication_ProcessSession": "Process Sessions",
+      "cr319_leaveapplication_SyncErrors": "Sync Errors",
+      "cr319_leaveapplicationid": "Leave Application",
+      "cr319_leavereason": "Leave Reason",
+      "cr319_leavestatus": "Leave Status",
+      "cr319_leavetitle": "Leave Title",
+      "cr319_Manager": "Manager ",
+      "cr319_name": "Leave Id",
+      "cr319_todate": "To Date",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Leave Applications",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Leave Applications (Views)",
+    "Name": "_cr319_leaveapplication_views",
+    "RelatedEntityName": "Leave Applications",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "15a29bb6-8a2f-41ca-8cc0-918c1683e280": "Active Leave Applications",
+      "31408d68-1c5f-4fa8-bb52-9f46e0c2f2ed": "Leave Application Associated View",
+      "9fdc4b12-f9ef-46a2-9711-3cf48c7b31dd": "Inactive Leave Applications",
+      "d266babc-3a23-47ad-b141-62b43c34fffd": "Leave Application Lookup View",
+      "e6774e35-7a31-4538-9df4-fbd19ad864c5": "Leave Application Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Leave Status (Leave Applications)",
+    "Name": "cr319_leaveapplication_cr319_leavestatus",
+    "OptionSetInfoNameMapping": {
+      "329330000": "Pending",
+      "329330001": "Approve",
+      "329330002": "Reject"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr319_leavestatus",
+        "OptionSetReferenceEntityName": "Leave Applications"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr319_leavestatus",
+    "RelatedEntityName": "Leave Applications",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Leave Applications)",
+    "Name": "cr319_leaveapplication_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Leave Applications"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Leave Applications",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Leave Applications)",
+    "Name": "cr319_leaveapplication_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Leave Applications"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Leave Applications",
+    "Type": "OptionSetInfo"
+  }
+]

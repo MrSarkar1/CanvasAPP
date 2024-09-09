@@ -1,0 +1,86 @@
+SendMailToManager As screen:
+
+    CompanyName_lb_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =51
+        Size: =20
+        Text: =EmpCompany.'Account Name'
+        Width: =1366
+        ZIndex: =1
+
+    Icon1_4 As icon.Unlock:
+        Color: =RGBA(184, 0, 0, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =32
+        Icon: =Icon.Unlock
+        OnSelect: =Navigate(loginPage,ScreenTransition.Fade)
+        Width: =33
+        X: =24
+        Y: =9
+        ZIndex: =2
+
+    Back_3 As icon.BackArrow:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =41
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(ManagerDetails,ScreenTransition.Fade);
+        Width: =33
+        X: =1317
+        Y: =5
+        ZIndex: =3
+
+    Container1 As groupContainer.manualLayoutContainer:
+        Height: =432
+        Width: =878
+        X: =264
+        Y: =132
+        ZIndex: =4
+
+        Label2 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =15
+            Text: ="Subject"
+            X: =86
+            Y: =40
+            ZIndex: =1
+
+        MailSubject_inp As text:
+            Default: =""
+            X: =328
+            Y: =40
+            ZIndex: =2
+
+        Label3 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =15
+            Text: ="Mail Body"
+            X: =86
+            Y: =124
+            ZIndex: =3
+
+        MailBody_inp As richTextEditor:
+            Default: =
+            X: =259
+            Y: =124
+            ZIndex: =4
+
+        Button3 As button:
+            Fill: =RGBA(54, 176, 75, 1)
+            OnSelect: |-
+                =SendMailToManager.Run(
+                    MailSubject_inp.Text,
+                    MailBody_inp.HtmlText,
+                    FromMail,
+                    ToMail
+                );
+                Reset(MailBody_inp);
+                Reset(MailSubject_inp);
+                Notify("Sucessfully send",NotificationType.Success);
+            Text: ="Send"
+            X: =381
+            Y: =342
+            ZIndex: =5
+

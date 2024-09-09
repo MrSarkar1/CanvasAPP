@@ -1,0 +1,62 @@
+{
+  "1c98e517-3bc1-4d53-ac73-336750706685": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1697/1.0.1697.3780/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "a938e91e-38a8-4048-b5e4-931f0ad53823": {
+          "value": "shared_office365"
+        },
+        "workflowEntityId": {
+          "value": "8640426b-ba9d-ee11-a569-6045bdc5ff9a"
+        },
+        "workflowName": {
+          "value": "2e323639-9dc9-e97f-5235-c3a92f4c1b2a"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "a938e91e-38a8-4048-b5e4-931f0ad53823"
+        },
+        "workflowEntityId": {
+          "value": "8640426b-ba9d-ee11-a569-6045bdc5ff9a"
+        },
+        "workflowName": {
+          "value": "2e323639-9dc9-e97f-5235-c3a92f4c1b2a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "SendMailToManager"
+    ],
+    "dependencies": {
+      "shared_office365": "a938e91e-38a8-4048-b5e4-931f0ad53823"
+    },
+    "dependents": [],
+    "id": "1c98e517-3bc1-4d53-ac73-336750706685"
+  },
+  "a938e91e-38a8-4048-b5e4-931f0ad53823": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "1c98e517-3bc1-4d53-ac73-336750706685"
+    ],
+    "id": "a938e91e-38a8-4048-b5e4-931f0ad53823"
+  }
+}

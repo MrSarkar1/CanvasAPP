@@ -1,0 +1,130 @@
+loginPage As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+    OnVisible: |-
+        =Set(hideButtonPassControl,true);
+        Set(ShowButtonPassControl,false);
+        Set(Password_inMode,"Password");
+
+    Image1 As image:
+        DisplayMode: =DisplayMode.View
+        Height: =768
+        Image: ='fingerprint-identity-sensor-data-protection-system-podium-hologram-blue-light-and-concept-free-vector'
+        ImagePosition: =ImagePosition.Fill
+        Width: =1366
+        ZIndex: =2
+
+    LoginContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.ExtraBold
+        Height: =506
+        Width: =639
+        X: =674
+        Y: =131
+        ZIndex: =3
+
+        Label1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Bold
+            Height: =72
+            Size: =18
+            Text: ="Login"
+            Width: =637
+            ZIndex: =1
+
+        Username_in As text:
+            Default: =""
+            Width: =275
+            X: =264
+            Y: =126
+            ZIndex: =2
+
+        Username_lb As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Size: =16
+            Text: ="Enter Username"
+            Width: =192
+            X: =39
+            Y: =126
+            ZIndex: =3
+
+        Password_lb As label:
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Size: =16
+            Text: ="Password"
+            Width: =192
+            X: =39
+            Y: =207
+            ZIndex: =4
+
+        Password_in As text:
+            Default: =""
+            Mode: =Password_inMode
+            Width: =275
+            X: =264
+            Y: =207
+            ZIndex: =5
+
+        login_btn As button:
+            BorderColor: =Color.Brown
+            Fill: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            OnSelect: |-
+                =Set(EmpName,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).'Employee Name');
+                Set(EmpUserName,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).UserName);
+                Set(EmpId,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).'Emp Id');
+                Set(EmpEmail,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).Email);
+                Set(EmpCompany,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).'Company Name');
+                Set(EmpManager,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).'Manager ');
+                Set(EmpRecordId,LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text).Employees);
+                If(!IsBlank(LookUp(Employees,UserName=Username_in.Text && Password=Password_in.Text)),Navigate(WelcomeScreen,ScreenTransition.Fade),
+                Notify("Username and Password not exist"));
+                
+                Reset(Username_in);
+                Reset(Password_in);
+            PressedColor: =Color.White
+            PressedFill: =RGBA(0,0,0,0)
+            Text: ="Login"
+            X: =301
+            Y: =318
+            ZIndex: =6
+
+        hideButtonPass As icon.Hide:
+            Height: =22
+            Icon: =Icon.Hide
+            OnSelect: |
+                =UpdateContext({hideButtonPassControl:false});
+                UpdateContext({ShowButtonPassControl:true});
+                If(hideButtonPassControl,UpdateContext({Password_inMode:"Password"}),UpdateContext({Password_inMode:"SingleLine"}));
+            Width: =45
+            X: =494
+            Y: =216
+            ZIndex: =7
+
+        ShowButtonPass As icon.View:
+            Height: =40
+            Icon: =Icon.View
+            OnSelect: |-
+                =UpdateContext({hideButtonPassControl:true});
+                UpdateContext({ShowButtonPassControl:false});
+                If(hideButtonPassControl,UpdateContext({Password_inMode:"SingleLine"}),UpdateContext({Password_inMode:"Password"}));
+            Visible: =ShowButtonPassControl
+            Width: =33
+            X: =494
+            Y: =207
+            ZIndex: =8
+
+    Label31 As label:
+        Text: =
+        X: =372
+        Y: =349
+        ZIndex: =4
+
+    Label32 As label:
+        Text: =hideButtonPassControl
+        X: =418
+        Y: =372
+        ZIndex: =5
+

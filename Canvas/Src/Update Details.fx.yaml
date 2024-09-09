@@ -1,0 +1,214 @@
+"'Update Details' As screen":
+
+    CompanyName_lb_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =51
+        Size: =20
+        Text: =EmpCompany.'Account Name'
+        Width: =1366
+        ZIndex: =1
+
+    Icon1_1 As icon.Unlock:
+        Color: =RGBA(184, 0, 0, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =32
+        Icon: =Icon.Unlock
+        OnSelect: =Navigate(loginPage,ScreenTransition.Fade)
+        Width: =33
+        X: =24
+        Y: =9
+        ZIndex: =2
+
+    Back As icon.BackArrow:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =41
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(WelcomeScreen,ScreenTransition.Fade);
+        Width: =33
+        X: =1317
+        Y: =5
+        ZIndex: =4
+
+    Label17 As label:
+        Align: =Align.Center
+        Color: =RGBA(39, 113, 194, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =53
+        Size: =15
+        Text: ="Update Employee Details Form"
+        Width: =1077
+        X: =160
+        Y: =101
+        ZIndex: =5
+
+    Container12 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Bold
+        Height: =322
+        Width: =809
+        X: =340
+        Y: =208
+        ZIndex: =6
+
+        Form5 As form:
+            DataSource: =Employees
+            DefaultMode: =FormMode.New
+            Height: =322
+            X: =9
+            ZIndex: =1
+
+            "'Employee Name_DataCard3' As typedDataCard.textualEditCard":
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr319_employeename"
+                Default: =ThisItem.'Employee Name'
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Employees],DataSourceInfo.DisplayName,cr319_employeename)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@Employees], DataSourceInfo.MaxLength, cr319_employeename)
+                Required: =false
+                Update: =DataCardName_inp.Text
+                Width: =266
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey7 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardName_inp As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =EmpName
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage7 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardName_inp.Y + DataCardName_inp.Height
+                    ZIndex: =3
+
+                StarVisible7 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey7.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey7.Y
+                    ZIndex: =4
+
+            Email_DataCard3 As typedDataCard.textualEditCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="cr319_email"
+                Default: =ThisItem.Email
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Employees],DataSourceInfo.DisplayName,cr319_email)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =98
+                MaxLength: =DataSourceInfo([@Employees], DataSourceInfo.MaxLength, cr319_email)
+                Required: =false
+                Update: =DataCardEmail_inp.Text
+                Width: =532
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey8 As label:
+                    AutoHeight: =true
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =5
+                    ZIndex: =1
+
+                DataCardEmail_inp As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Default: =EmpEmail
+                    DelayOutput: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =38
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Tooltip: =Parent.DisplayName
+                    Width: =280
+                    X: =30
+                    Y: =50
+                    ZIndex: =2
+
+                ErrorMessage8 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardEmail_inp.Y + DataCardEmail_inp.Height
+                    ZIndex: =3
+
+                StarVisible8 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey8.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey8.Y
+                    ZIndex: =4
+
+        Button6 As button:
+            OnSelect: |-
+                =Patch(Employees,
+                LookUp(Employees,'Emp Id'=EmpId),
+                {
+                'Employee Name':DataCardName_inp.Text,
+                Email:DataCardEmail_inp.Text
+                });
+                Set(EmpName,LookUp(Employees,'Emp Id'=EmpId).'Employee Name');
+                Set(EmpEmail,LookUp(Employees,'Emp Id'=EmpId).Email);
+                Navigate(WelcomeScreen);
+            Text: ="Submit"
+            X: =316
+            Y: =212
+            ZIndex: =2
+
